@@ -1,0 +1,60 @@
+import {test,expect} from '@playwright/test';
+test('المناطق، تصفية المدن، التفاصيل، ولوحة المفاتيح',async({page})=>{
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('./');await expect(page.locator('h1')).toContainText('لكل أرض');await expect(page.locator('path.region')).toHaveCount(13);
+ await expect(page.locator('.region-heading h2')).toHaveText('القصيم');
+ await page.getByRole('button',{name:'منطقة الجوف',exact:true}).focus();await page.keyboard.press('Enter');await expect(page.locator('.region-heading h2')).toHaveText('الجوف');
+ await page.getByRole('button',{name:'سكاكا',exact:true}).click();await expect(page.locator('.experience-card')).toHaveCount(1);await expect(page.locator('.experience-card')).toContainText('رحلة حبة زيتون');
+ await page.locator('.experience-card').click();await expect(page.getByRole('dialog')).toBeVisible();await expect(page.getByRole('dialog')).toContainText('ليست حجزًا');await page.keyboard.press('Escape');await expect(page.getByRole('dialog')).toHaveCount(0);
+ await page.getByRole('button',{name:'كل المدن',exact:true}).click();await expect(page.locator('.experience-card')).toHaveCount(2);
+ await page.getByRole('tab',{name:'المدن',exact:true}).click();await page.keyboard.press('ArrowLeft');await expect(page.getByRole('tab',{name:'التجارب',exact:true})).toBeFocused();
+ await page.getByRole('button',{name:'منطقة مكة المكرمة، المحتوى قريبًا',exact:true}).focus();await page.keyboard.press('Space');await expect(page.locator('.empty-panel')).toContainText('مكة المكرمة');
+ await page.getByRole('button',{name:'العودة للخريطة الرئيسية'}).click();await expect(page.locator('.empty-panel')).toContainText('أين تبدأ حكايتك');
+ await page.locator('.region-shortcuts button').filter({hasText:'الرياض'}).click();await expect(page.locator('.region-heading h2')).toHaveText('الرياض');
+ await page.getByRole('button',{name:'تكبير الخريطة',exact:true}).click();await expect(page.locator('.saudi-map>g')).toHaveAttribute('transform',/scale\(1.25\)/);
+ await page.getByRole('button',{name:'إعادة ضبط الخريطة',exact:true}).click();await expect(page.locator('.saudi-map>g')).toHaveAttribute('transform',/scale\(1\)/);
+ expect(errors).toEqual([]);
+});
+test('الهندسة، الرسوم والخطوط محلية',async({page})=>{
+ const failed=[];page.on('response',r=>{if(r.status()>=400)failed.push(r.url());});await page.goto('./');await page.evaluate(()=>document.fonts.ready);
+ expect(await page.locator('img').evaluateAll(images=>images.every(i=>i.complete&&i.naturalWidth>0))).toBe(true);
+ const paths=await page.locator('path.region').evaluateAll(nodes=>nodes.map(n=>({id:n.dataset.region,b:n.getBBox().width})));expect(new Set(paths.map(p=>p.id)).size).toBe(13);expect(paths.every(p=>p.b>1)).toBe(true);expect(failed).toEqual([]);
+});
+test('الشاشات الكبيرة والأجهزة اللوحية',async({page})=>{
+ for(const [name,width,height] of [['desktop',1440,1100],['tablet',1024,1366]]){
+  await page.setViewportSize({width,height});await page.goto('./');await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(500);
+  const map=await page.locator('.map-section').boundingBox(),panel=await page.locator('.info-panel').boundingBox();expect(map.x).toBeLessThan(panel.x);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.screenshot({path:`test-results/${name}.png`,fullPage:true});
+ }
+});
+test('الجوال: لمس، ترتيب الخريطة، عدم وجود تمرير أفقي',async({browser})=>{
+ const context=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true});const page=await context.newPage();await page.goto('http://127.0.0.1:5173/min-huna-map/');
+ await page.locator('.region-shortcuts button').filter({hasText:'جازان'}).tap();await expect(page.locator('.region-heading h2')).toHaveText('جازان');await page.getByRole('button',{name:'الداير',exact:true}).tap();await expect(page.locator('.experience-card')).toHaveCount(1);await page.locator('.experience-card').tap();await expect(page.getByRole('dialog')).toBeVisible();await page.getByRole('button',{name:'إغلاق التفاصيل'}).tap();
+ await page.getByRole('button',{name:'تكبير الخريطة',exact:true}).tap();await expect(page.locator('.saudi-map>g')).toHaveAttribute('transform',/scale\(1.25\)/);
+ await page.getByRole('button',{name:'إعادة ضبط الخريطة',exact:true}).tap();await page.evaluate(()=>scrollTo(0,0));
+ const map=await page.locator('.map-section').boundingBox(),panel=await page.locator('.info-panel').boundingBox();expect(map.y).toBeLessThan(panel.y);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(500);await page.screenshot({path:'test-results/mobile.png',fullPage:true});await context.close();
+});
+
+test('لمس مضلع الخريطة والتكبير بإصبعين والسحب',async({browser})=>{
+ const context=await browser.newContext({viewport:{width:800,height:1100},isMobile:true,hasTouch:true});const page=await context.newPage();await page.goto('http://127.0.0.1:5173/min-huna-map/');
+ const point=await page.locator('path[data-region="SA.RI"]').evaluate(node=>{const g=node.parentElement.querySelector('.region-label');const p=new DOMPoint(0,0).matrixTransform(g.getScreenCTM());return{x:p.x,y:p.y};});await page.touchscreen.tap(point.x,point.y);await expect(page.locator('.region-heading h2')).toHaveText('الرياض');
+ const svg=await page.locator('.saudi-map').boundingBox();const client=await context.newCDPSession(page);const y=svg.y+svg.height/2;const x=svg.x+svg.width/2;const touch=(type,points)=>client.send('Input.dispatchTouchEvent',{type,touchPoints:points.map((p,i)=>({x:p[0],y:p[1],id:i+1}))});
+ await touch('touchStart',[[x-25,y],[x+25,y]]);await touch('touchMove',[[x-45,y],[x+45,y]]);await touch('touchEnd',[]);await expect(page.locator('.saudi-map>g')).not.toHaveAttribute('transform',/scale\(1\)/);
+ const old=await page.locator('.saudi-map>g').getAttribute('transform');await touch('touchStart',[[x,y]]);await touch('touchMove',[[x+35,y+20]]);await touch('touchEnd',[]);await expect(page.locator('.saudi-map>g')).not.toHaveAttribute('transform',old);await context.close();
+});
+
+test('الضغط الحقيقي على المناطق الـ13 يعرض محتواها المتوفر',async({page})=>{
+ await page.setViewportSize({width:1440,height:1700});await page.goto('./');
+ const {regions,regionNames}=await import('../src/data/regions.js');
+ const ids=await page.locator('path.region').evaluateAll(nodes=>nodes.map(n=>n.dataset.region));
+ for(const id of ids){
+  const point=await page.locator(`path[data-region="${id}"]`).evaluate(n=>{
+   const b=n.getBBox();let p;
+   for(let y=.5;y<1&&!p;y+=.1)for(let x=.5;x<1&&!p;x+=.1){const q=new DOMPoint(b.x+b.width*x,b.y+b.height*y);if(n.isPointInFill(q))p=q;}
+   if(!p)for(let y=.1;y<1&&!p;y+=.1)for(let x=.1;x<1&&!p;x+=.1){const q=new DOMPoint(b.x+b.width*x,b.y+b.height*y);if(n.isPointInFill(q))p=q;}
+   if(!p)throw new Error('No interior click point');const screen=p.matrixTransform(n.getScreenCTM());return{x:screen.x,y:screen.y};
+  });
+  await page.mouse.click(point.x,point.y);await expect(page.locator(`path[data-region="${id}"]`)).toHaveAttribute('aria-pressed','true');
+  if(regions[id]){await expect(page.locator('.region-heading h2')).toHaveText(regionNames[id]);await expect(page.locator('.experience-card')).toHaveCount(regions[id].experiences.length);}
+  else{await expect(page.locator('.empty-panel h2')).toHaveText(regionNames[id]);await expect(page.locator('.empty-panel')).toContainText('سيُضاف');}
+ }
+});

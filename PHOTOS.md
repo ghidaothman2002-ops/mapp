@@ -1,0 +1,38 @@
+# حقوق الصور ومصادرها
+
+26 صورة محلية، توزعت على المناطق الـ13، دون إعادة استخدام الصورة نفسها بين المناطق. تم التحقق من الوصف والمصور والترخيص في Commons وفحص المشاهد بصريًا في 2026-10-14. الصور لا تثبت أن المواقع تقدم أنشطة أو تستقبل الزوار. صورة عرعر معلم حضري، وليست مزرعة.
+
+الملفات نسخ ويب يوفرها Wikimedia، حُمّلت دون تغيير ألوان أو عناصر الصورة. قد يعرضها CSS بقص متجاوب. حقوق كل صورة تبقى لمصورها وفق الترخيص المحدد؛ لا يُعاد ترخيصها باعتبارها رسومات المشروع. النسخ CC BY-SA يحتفظ توزيعها وشروط التعديلات عليها بترخيصها، دون ادعاء تحويل بقية التطبيق إلى صور مملوكة لنا.
+
+| الملف المحلي | المشهد | المصوّر | الترخيص | المصدر |
+|---|---|---|---|---|
+| `photos/ri-2.jpg` | أشجار ومياه وادي حنيفة، الرياض | Ahmedpictures12 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Wadi_Hanifa.jpg) |
+| `photos/ri-1.jpg` | بحيرة في وادي حنيفة، الرياض | Peter Dowley from Dubai, United Arab Emirates | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [Commons](https://commons.wikimedia.org/wiki/File:Lake_at_Wadi_Hanifah_(5218227168).jpg) |
+| `photos/qs-1.jpg` | بيوت محمية في مركز مكافحة التصحر ببريدة | Matti&Keti | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Commons](https://commons.wikimedia.org/wiki/File:Buraida_desertification_05.jpg) |
+| `photos/qs-2.jpg` | مدينة التمور في بريدة | Suliman Al-Kurishan from Unaizah , Saudi Arabia | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [Commons](https://commons.wikimedia.org/wiki/File:Date_City_in_Buraidah_8.JPG) |
+| `photos/tb-1.jpg` | وادي الديسة، تبوك | Clemens Schmillen | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Wadi_al-Disah1.jpg) |
+| `photos/tb-2.jpg` | مشهد من وادي الديسة، تبوك | Rahman Salem | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:%D9%88%D8%A7%D8%AF%D9%8A_%D8%A7%D9%84%D8%AF%D9%8A%D8%B3%D8%A9.jpg) |
+| `photos/jf-1.jpg` | مزارع الزيتون في منطقة الجوف | وكالة الأنباء السعودية | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:%D9%85%D8%B2%D8%A7%D8%B1%D8%B9_%D8%A7%D9%84%D8%B2%D9%8A%D8%AA%D9%88%D9%86_%D9%81%D9%8A_%D8%A7%D9%84%D8%AC%D9%88%D9%81.jpg) |
+| `photos/jf-2.jpg` | بساتين زيتون في الجوف | وكالة الأنباء السعودية | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:%D9%85%D8%B2%D8%A7%D8%B1%D8%B9_%D8%A7%D9%84%D8%B2%D9%8A%D8%AA%D9%88%D9%86_%D9%81%D9%8A_%D8%A7%D9%84%D8%AC%D9%88%D9%81_1.jpg) |
+| `photos/jf-3.jpg` | مشهد آخر لمزارع الزيتون في الجوف | وكالة الأنباء السعودية | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:%D9%85%D8%B2%D8%A7%D8%B1%D8%B9_%D8%A7%D9%84%D8%B2%D9%8A%D8%AA%D9%88%D9%86_%D9%81%D9%8A_%D8%A7%D9%84%D8%AC%D9%88%D9%81_2.jpg) |
+| `photos/as-1.jpg` | مرتفعات رجال ألمع، عسير | Saudi Press Agency (SPA) | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Rijal_Almaa,_Aseer,_Saudi_Arabia_(2020).jpg) |
+| `photos/as-2.jpg` | قرية رجال ألمع التاريخية، عسير | Richard Mortel | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [Commons](https://commons.wikimedia.org/wiki/File:Rijal_Almaa_village_2021.jpg) |
+| `photos/jz-1.jpg` | السحب على جبال فيفا، جازان | Saudi Press Agency (SPA) | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Clouds_Embrace_Fayfa_Mountains_in_Jazan_(2025).jpg) |
+| `photos/jz-2.jpg` | طبيعة جبال فيفا، جازان | Ahmadalfaifi771 | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Commons](https://commons.wikimedia.org/wiki/File:%D9%85%D9%86%D8%B8%D8%B1_%D9%85%D9%86_%D8%AC%D8%A8%D8%A7%D9%84_%D9%81%D9%8A%D9%81%D8%A7%D8%A1_%E2%80%93_%D8%AC%D8%A7%D8%B2%D8%A7%D9%86%D8%8C_%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9.jpg) |
+| `photos/nj-1.jpg` | مشهد من حمى الثقافية قرب نجران | Prof. Mortel | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [Commons](https://commons.wikimedia.org/wiki/File:Landscape_at_Hima_Cultural_Area,_near_Najran,_Saudi_Arabia_(1).jpg) |
+| `photos/nj-2.jpg` | طبيعة منطقة حمى الثقافية، نجران | Prof. Mortel | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [Commons](https://commons.wikimedia.org/wiki/File:Landscape_at_Hima_Cultural_Area,_near_Najran,_Saudi_Arabia_(2).jpg) |
+| `photos/sh-1.jpg` | نخيل في الهفوف، الأحساء | King Eliot | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Palm_trees_in_Hofuf.JPG) |
+| `photos/sh-2.jpg` | كهف جبل القارة في الأحساء | കാക്കര | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Commons](https://commons.wikimedia.org/wiki/File:Jabal_Al_Qara_Cave_-_Al_Hassa,_Saudi_Arabia_%E0%B4%9C%E0%B4%AC%E0%B5%BD_%E0%B4%85%E0%B5%BD_%E0%B4%96%E0%B4%BE%E0%B4%B1_%E0%B4%97%E0%B5%81%E0%B4%B9,_%E0%B4%85%E0%B5%BD_%E0%B4%B9%E0%B4%B8,_%E0%B4%B8%E0%B5%97%E0%B4%A6%E0%B4%BF_%E0%B4%85%E0%B4%B1%E0%B5%87%E0%B4%AC%E0%B5%8D%E0%B4%AF_12.JPG) |
+| `photos/md-1.jpg` | واحة العلا، منطقة المدينة المنورة | Radosław Botev | [CC BY 3.0 pl](https://creativecommons.org/licenses/by/3.0/pl/deed.en) | [Commons](https://commons.wikimedia.org/wiki/File:Al-%27Ula_oasis_(3).jpg) |
+| `photos/md-2.jpg` | مشهد آخر لواحة العلا | Radosław Botev | [CC BY 3.0 pl](https://creativecommons.org/licenses/by/3.0/pl/deed.en) | [Commons](https://commons.wikimedia.org/wiki/File:Al-%27Ula_oasis_(12).jpg) |
+| `photos/ha-2.jpg` | مشهد من جبال المسمى، حائل | Saudi Press Agency (SPA) | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:02_Al-Musamma_Mountains,_King_Salman_Royal_Reserve,_Hail_Region,_Saudi_Arabia_(2023).jpg) |
+| `photos/ha-1.jpg` | جبال المسمى في منطقة حائل | Saudi Press Agency (SPA) | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Al-Musamma_Mountains,_King_Salman_Royal_Reserve,_Hail_Region,_Saudi_Arabia_(2023).jpg) |
+| `photos/ba-2.jpg` | مشهد علوي لقرية ذي عين، الباحة | Ufarooqbhutta | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Topview3.jpg) |
+| `photos/ba-1.jpg` | قرية ذي عين في الباحة | Ufarooqbhutta | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:Tower_view_of_marble_village.jpg) |
+| `photos/mk-2.jpg` | جبال السروات كما تبدو من الطائف | FuturisticalTee | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Commons](https://commons.wikimedia.org/wiki/File:Ta%27if_Mountains_2011.jpg) |
+| `photos/mk-1.jpg` | مرتفعات الطائف بمنطقة مكة المكرمة | Nick Shields | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [Commons](https://commons.wikimedia.org/wiki/File:Saudi_Mountain_View_2_(8103500268).jpg) |
+| `photos/hs-1.jpg` | برج عرعر في منطقة الحدود الشمالية | Niboj74 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Commons](https://commons.wikimedia.org/wiki/File:20210128_153213Arar_Tower.jpg) |
+
+الميتاداتا الأصلية، وروابط الملفات الأصلية، وبصمات SHA-256 للنسخ المحلية في `src/data/photos.json`. البصمة `sha1` في السجل تخص الملف الأصلي كما تعرضها Commons؛ `localSha256` تخص النسخة المحلية التي يستخدمها التطبيق.
+
+استُبعدت نتيجة بعنوان Al-ahsa-oasis.jpg بعد الفحص البصري لأنها ملصق كتابة وليست صورة للواحة. استُبدلت بصورة نخيل في الهفوف، ولم تُعرض النتيجة المرفوضة في التطبيق.
