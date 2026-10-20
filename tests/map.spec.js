@@ -11,7 +11,7 @@ test('الضغط الفعلي على المناطق الـ13 يعرض بطاقا
  await page.setViewportSize({width:1440,height:1200});await page.goto('./');
  for(const [id,name]of Object.entries(regionNames)){
   const point=await page.locator(`path[data-region="${id}"]`).evaluate(n=>{const b=n.getBBox();let p;for(let y=.1;y<1&&!p;y+=.1)for(let x=.1;x<1&&!p;x+=.1){const q=new DOMPoint(b.x+b.width*x,b.y+b.height*y);if(n.isPointInFill(q))p=q;}if(!p)throw Error('No interior point');const q=p.matrixTransform(n.getScreenCTM());return {x:q.x,y:q.y};});
-  await page.mouse.click(point.x,point.y);await expect(page.locator('.region-hero h2')).toHaveText(name);await expect(page.locator(`path[data-region="${id}"]`)).toHaveAttribute('aria-pressed','true');await expect(page.locator('.experience-body h4')).toHaveText(tourismRegions[id].experiences[0].title);await page.getByRole('button',{name:'إغلاق بطاقة المنطقة',exact:true}).click();await expect(page.locator('.region-panel')).toHaveCount(0);
+  await page.mouse.click(point.x,point.y);await expect(page.locator('.region-hero h2')).toHaveText(name);await expect(page.locator(`path[data-region="${id}"]`)).toHaveAttribute('aria-pressed','true');await expect(page.locator('.experience-body h4')).toHaveText(tourismRegions[id].experiences[0].title);await expect(page.locator('.crop-tags span').first()).toBeVisible();await page.getByRole('button',{name:'إغلاق بطاقة المنطقة',exact:true}).click();await expect(page.locator('.region-panel')).toHaveCount(0);
  }
 });
 test('لوحة المفاتيح، التصفية، أسهم التجارب، التفاصيل والعودة',async({page})=>{

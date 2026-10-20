@@ -23,3 +23,20 @@ test('all local photos retain attribution, match their hashes, and are unique ac
  for(const [id,items]of Object.entries(photos)){assert.ok(regionNames[id]);assert.ok(items.length);for(const p of items){assert.match(p.src,/^photos\/[a-z]{2}-\d+\.jpg$/);assert.ok(p.artist&&p.caption&&p.description&&p.license);assert.equal(new URL(p.page).hostname,'commons.wikimedia.org');assert.equal(new URL(p.licenseUrl).hostname,'creativecommons.org');const b=fs.readFileSync(new URL('../public/'+p.src,import.meta.url));const hash=createHash('sha256').update(b).digest('hex');assert.equal(hash,p.localSha256);assert.ok(!owners.has(hash)||owners.get(hash)===id,'photo reused across regions');owners.set(hash,id);count++;}}
  assert.equal(count,26);
 });
+
+test('all 13 regions have nonempty crop lists with crop-level regional evidence',async()=>{
+ const {regionalCrops,cropReferences}=await import('../src/data/crops.js');
+ const {tourismRegions}=await import('../src/data/tourism.js');
+ assert.deepEqual(Object.keys(regionalCrops).sort(),Object.keys(regionNames).sort());
+ for(const [id,region]of Object.entries(tourismRegions)){
+  assert.ok(region.crops.length>0,`${id}: empty crop list`);
+  assert.equal(new Set(region.crops).size,region.crops.length);
+  assert.ok(region.cropSources.length>0,`${id}: missing visible references`);
+  for(const item of region.cropEvidence){
+   const reference=cropReferences[item.reference];assert.ok(reference&&item.name&&item.evidence);
+   assert.ok(region.crops.includes(item.name));assert.equal(new URL(reference.url).protocol,'https:');
+   if(item.reference!=='jawfOlives')assert.ok(item.pages.length>0);
+   for(const page of item.pages)assert.ok(Number.isInteger(page)&&page>0&&(!reference.pdfPages||page<=reference.pdfPages));
+  }
+ }
+});
